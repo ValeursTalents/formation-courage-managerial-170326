@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Courage Managérial - Formation Valeurs & Talents</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Calibri, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #473c32;
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #473c32 0%, #5a4d42 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,200 Q300,150 600,200 T1200,200 L1200,400 L0,400 Z" fill="%2394c11f" opacity="0.1"/></svg>') no-repeat bottom center;
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #94c11f;
+            margin-bottom: 2rem;
+        }
+
+        .info-banner {
+            background-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .info-banner p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .info-banner strong {
+            color: #94c11f;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #473c32;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #94c11f;
+            display: inline-block;
+        }
+
+        /* Programme Accordéon */
+        .accordion {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #f0f0f0;
+        }
+
+        .accordion-header.active {
+            background-color: #94c11f;
+            color: white;
+        }
+
+        .accordion-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .accordion-time {
+            font-size: 0.95rem;
+            color: #666;
+            margin-right: 1rem;
+        }
+
+        .accordion-header.active .accordion-time {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #ffffff;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+
+        .accordion-body {
+            padding: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .accordion-body strong {
+            color: #ee7601;
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Map Section */
+        .map-container {
+            position: relative;
+            padding-bottom: 50%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin-top: 1rem;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .address {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-left: 4px solid #94c11f;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        .address strong {
+            color: #ee7601;
+        }
+
+        /* Download Buttons */
+        .download-section {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #94c11f 0%, #7da519 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(148, 193, 31, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(148, 193, 31, 0.4);
+        }
+
+        .download-btn.secondary {
+            background: linear-gradient(135deg, #ee7601 0%, #d66801 100%);
+            box-shadow: 0 4px 12px rgba(238, 118, 1, 0.3);
+        }
+
+        .download-btn.secondary:hover {
+            box-shadow: 0 6px 16px rgba(238, 118, 1, 0.4);
+        }
+
+        .download-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #473c32;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            color: #94c11f;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: #94c11f;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #ee7601;
+        }
+
+        .footer-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background-color: rgba(148, 193, 31, 0.2);
+            border: 2px solid #94c11f;
+            color: #94c11f;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            background-color: #94c11f;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .download-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .download-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .accordion-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .accordion-time {
+                margin-right: 0;
+            }
+        }
+
+        /* Objectifs Section */
+        .objectifs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .objectif-card {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #94c11f;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .objectif-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .objectif-card h3 {
+            color: #ee7601;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .objectif-card p {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="Valeurs & Talents" class="logo">
+            <h1>Le Courage Managérial</h1>
+            <p class="subtitle">Réconcilier bienveillance et exigence</p>
+            <div class="info-banner">
+                <p><strong>📅 Date :</strong> 18 mars 2026 | 8h30 - 12h30</p>
+                <p><strong>📍 Lieu :</strong> Chez Abylon, 12 Rue de l'Isly, 75008 Paris</p>
+                <p><strong>⏱️ Durée :</strong> Formation en présentiel - 4 heures</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Objectifs Section -->
+        <section id="objectifs">
+            <h2>🎯 Objectifs de la formation</h2>
+            <div class="objectifs-grid">
+                <div class="objectif-card">
+                    <h3>Comprendre les concepts clés</h3>
+                    <p>Maîtriser les notions d'autorité vs autoritarisme, cadre managérial, légitimité et posture attendue dans la fonction de manager.</p>
+                </div>
+                <div class="objectif-card">
+                    <h3>Analyser et proposer des alternatives</h3>
+                    <p>Identifier des écarts de posture managériale dans des situations concrètes et proposer des alternatives plus courageuses et structurantes.</p>
+                </div>
+                <div class="objectif-card">
+                    <h3>Adopter une posture d'autorité juste</h3>
+                    <p>Mobiliser sa voix, son regard et sa posture pour incarner une autorité bienveillante en situation sensible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programme Section -->
+        <section id="programme">
+            <h2>📋 Programme détaillé</h2>
+            <div class="accordion">
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Introduction</span>
+                        <span class="accordion-time">08h30 - 08h50</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Objectif :</strong> Créer un climat de confiance, recueillir les attentes, présenter les objectifs</p>
+                            <p><strong>Méthode :</strong> Icebreaker dynamique avec présentation croisée et recueil des attentes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Les essentiels du courage managérial</span>
+                        <span class="accordion-time">08h50 - 09h30</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Objectif :</strong> Comprendre les concepts clés : autorité vs autoritarisme, cadre managérial, légitimité</p>
+                            <p><strong>Contenu :</strong> Apports théoriques sur les couleurs du manager, pyramide de Maslow, fiche de poste</p>
+                            <p><strong>Méthode :</strong> Exposé structuré et interactif</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Classe inversée : Analyse de situations</span>
+                        <span class="accordion-time">09h30 - 10h10</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Objectif :</strong> Analyser des situations concrètes et proposer des alternatives courageuses et structurantes</p>
+                            <p><strong>Méthode :</strong> Travail en sous-groupes sur cas pratiques issus du quotidien en cabinet de conseil</p>
+                            <p><strong>Format :</strong> Pré-lecture de fiches + travail collaboratif</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">☕ Pause</span>
+                        <span class="accordion-time">10h10 - 10h30</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Temps de pause pour échanger de manière informelle et se ressourcer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Restitution des classes inversées</span>
+                        <span class="accordion-time">10h30 - 11h15</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Objectif :</strong> Analyser des situations concrètes et proposer des alternatives courageuses</p>
+                            <p><strong>Méthode :</strong> Restitution plénière avec présentation des travaux + apports du formateur</p>
+                            <p><strong>Supports :</strong> Fiches outils pratiques remises aux participants</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Focus sur la posture d'autorité</span>
+                        <span class="accordion-time">11h15 - 12h10</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Objectif :</strong> Adopter une posture d'autorité juste et bienveillante en mobilisant voix, regard et posture</p>
+                            <p><strong>Méthode :</strong> Mises en situation jouées en plénière</p>
+                            <p><strong>Travail pratique :</strong> Expérimentation de la posture d'autorité dans un cadre sécurisé</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Conclusion & Mise en action</span>
+                        <span class="accordion-time">12h10 - 12h20</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Objectif :</strong> Évaluer la formation, extraire un apprentissage clé, définir un engagement personnel</p>
+                            <p><strong>Méthode :</strong> Déclusion et ancrage avec post-it + tour de table + plan d'action individuel</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Mot du formateur (Video) -->
+        <section id="video">
+            <h2>🎥 Mot du formateur</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/aW9MsCA7LPA" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Lieu (Map) -->
+        <section id="lieu">
+            <h2>📍 Lieu de la formation</h2>
+            <div class="address">
+                <p><strong>Chez Abylon</strong></p>
+                <p>12 Rue de l'Isly, 75008 Paris</p>
+                <p>📅 18 mars 2026 | ⏰ 8h30 - 12h30</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.0688964267373!2d2.3215645!3d48.8757891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc6c0b1c1c7%3A0x4a8e5f6b7c8d9e0f!2s12%20Rue%20de%20l'Isly%2C%2075008%20Paris!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <!-- Documents à télécharger -->
+        <section id="telechargements">
+            <h2>📥 Documents à télécharger</h2>
+            <div class="download-section">
+                <a href="programme.pdf" class="download-btn" download>
+                    <span class="download-icon">📄</span>
+                    Programme de formation
+                </a>
+                <a href="livret-stagiaire.pdf" class="download-btn secondary" download>
+                    <span class="download-icon">📘</span>
+                    Livret stagiaire
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact du formateur</h3>
+                <p><strong>Mickael Loeuille</strong></p>
+                <p>📧 <a href="mailto:mickael.loeuille@valeurs-et-talents.fr">mickael.loeuille@valeurs-et-talents.fr</a></p>
+                <p>📱 <a href="tel:+33681255388">06 81 25 53 88</a></p>
+            </div>
+            <a href="https://www.valeurs-et-talents.fr/qui-sommes-nous/nos-engagements-sur-le-handicap/" class="footer-link" target="_blank">
+                ♿ Politique d'inclusion et de gestion du handicap
+            </a>
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                © 2026 Valeurs & Talents - Tous droits réservés
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Accordion -->
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const content = header.nextElementSibling;
+            const allHeaders = document.querySelectorAll('.accordion-header');
+            const allContents = document.querySelectorAll('.accordion-content');
+
+            // Close all other accordions
+            allHeaders.forEach(h => {
+                if (h !== header) {
+                    h.classList.remove('active');
+                }
+            });
+            allContents.forEach(c => {
+                if (c !== content) {
+                    c.classList.remove('active');
+                }
+            });
+
+            // Toggle current accordion
+            header.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
